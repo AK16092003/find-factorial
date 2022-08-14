@@ -1,5 +1,15 @@
-n = int(input(("enter a value")))
-s=1
-for i in range(2,n+1):
-  s = s * i
-print("result = ",s)
+import sys
+sys.setrecursionlimit(10**9)
+
+memo = {1:1 , 0:1}
+def factorial(n):
+  if n in  memo:
+    return memo[n]
+  return n*factorial(n-1)
+
+t = int(input("Enter number of testcases : "))
+while(t):
+  n = int(input("Enter number N : "))
+  ans = factorial(n)
+  print("Result = ", ans)
+  t -= 1
